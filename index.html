@@ -152,6 +152,177 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-小程序生命周期" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/13/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">ES6基础</a>
+    </h1>
+  
+
+        
+        <a href="/2021/03/13/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="archive-article-date">
+  	<time datetime="2021-03-13T07:20:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>首先小程序的生命周期函数是在<code>app.js</code>里面调用的，<code>App(Object)</code>函数用来注册一个小程序。接受一个 <code>Object</code> 参数，指定其小程序的生命周期回调；一般有<code>onLaunch</code>监听小程序初始化、<code>onShow</code>监听小程序显示、<code>onHide</code>监听小程序隐藏等生命周期回调函数。</p>
+<h4 id="应用生命周期"><a href="#应用生命周期" class="headerlink" title="应用生命周期"></a>应用生命周期</h4><p>生命周期主要指在小程序运行的过程中,所触发的监听函数以及所需要的数据</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onLaunch</td>
+<td>监听小程序的初始化</td>
+</tr>
+<tr>
+<td>onShow</td>
+<td>监听小程序切入前台以及启动</td>
+</tr>
+<tr>
+<td>onHide</td>
+<td>监听小程序切后台</td>
+</tr>
+<tr>
+<td>onError</td>
+<td>监听小程序整个错误函数</td>
+</tr>
+<tr>
+<td>onPageNotFound</td>
+<td>页面不存在的监听函数</td>
+</tr>
+</tbody></table>
+<h4 id="页面生命周期"><a href="#页面生命周期" class="headerlink" title="页面生命周期"></a>页面生命周期</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>data</td>
+<td>页面初始数据(Object类型)</td>
+</tr>
+<tr>
+<td>onLoad</td>
+<td>回调监听页面加载,发送异步请求初始化页面</td>
+</tr>
+<tr>
+<td>onShow</td>
+<td>监听页面显示</td>
+</tr>
+<tr>
+<td>onReady</td>
+<td>监听页面初次渲染完成</td>
+</tr>
+<tr>
+<td>onHide</td>
+<td>监听页面隐藏</td>
+</tr>
+<tr>
+<td>onUnload</td>
+<td>监听页面关闭事件</td>
+</tr>
+<tr>
+<td>onPullDownRefresh</td>
+<td>监听页面下拉操作,数据重新加载,效果刷新</td>
+</tr>
+<tr>
+<td>onReachBottom</td>
+<td>监听页面触底上拉操作,必须有进度条,加载下一页事件</td>
+</tr>
+<tr>
+<td>onShareAppMessage</td>
+<td>监听用户点击右上角转发</td>
+</tr>
+<tr>
+<td>onPageScroll</td>
+<td>监听页面滚动</td>
+</tr>
+<tr>
+<td>onResize</td>
+<td>监听页面尺寸改变事件,屏幕旋转</td>
+</tr>
+<tr>
+<td>onTabitemTap</td>
+<td>当前是Tab时,点击当前tab页的事件</td>
+</tr>
+</tbody></table>
+<p><strong>具体细节</strong></p>
+<ol>
+<li><p>程序启动时<br>第一执行onLauch函数——当小程序初始化完成时，会触发 onLaunch（全局只触发一次）<br>第二执行onShow函数——当小程序启动，或从后台进入前台显示，会触发 onShow</p>
+</li>
+<li><p>当点击“后台”时，会触发以下函数<br>onHide函数——当小程序从前台进入后台，会触发 onHide<br>当点击“前台”时，就会再次触发onShow函数</p>
+</li>
+<li><p>onLoad: 页面加载</p>
+<p>一个页面只会调用一次，可以在 onLoad 中获取打开当前页面所调用的 query 参数。</p>
+<p>而onShow: 页面显示</p>
+<p>每次打开页面都会调用一次。</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">前端 小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/13/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ES6基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1010,6 +1181,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">前端 小程序</a>
               </li>
             
             <div class="clearfix"></div>
