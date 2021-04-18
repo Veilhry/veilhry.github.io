@@ -152,6 +152,181 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-模拟退火算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/18/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95/">模拟退火算法</a>
+    </h1>
+  
+
+        
+        <a href="/2021/04/18/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2021-04-18T07:00:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>模拟退火 (Simulated Annealing):</strong> 它是一种通过模拟物理退 火过程搜索最优解的方法.</p>
+<h4 id="题目示例"><a href="#题目示例" class="headerlink" title="题目示例"></a>题目示例</h4><p>旅行商问题（TSP): 假设有一个旅行商人要拜访 n 个城市, d<sub>ij</sub> 表 示两城市间距离. x<sub>ij</sub>为 0,1 变量, 表示拜访路径是否包函路径 d<sub>ij</sub>.</p>
+<p><strong>约束条件：</strong>通过n个城市后最终回到起点<br>$$<br>约束条件：\sum_{i=0}^n x_{ij} = \sum_{j=0}^nx_{ij}=1<br>$$</p>
+<p>$$<br>&lt;Empty \space Math \space Block&gt;<br>$$</p>
+<p><strong>目标：</strong><br>$$<br>min \sum_{i\neq j}d_{ij}x_{ij}<br>$$<br>以第一个城市为始终点, 计算任意一条路径 [1, i<sub>2</sub>, · · · , i<sub>n</sub>, 1] 的长度的基本运算为两两城市间距离求和, 基本操作次数为 n. 路径的条数为 (n−1)!. 求和运算的总次数为(n−1)!×n = n!.</p>
+<p>若只通过枚举法求解：假设计算机每秒计算24个城市</p>
+<table>
+<thead>
+<tr>
+<th>城市数量</th>
+<th>25</th>
+<th>26</th>
+<th>28</th>
+<th>29</th>
+<th>30</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>计算时间</td>
+<td>1s</td>
+<td>10m</td>
+<td>4.9d</td>
+<td>136.5d</td>
+<td>10.8y</td>
+</tr>
+</tbody></table>
+<p>所以靠暴力枚举法求解，所花销的时间复杂度是难以忍受的，而使用模拟退火算法，收敛速度会更加能够接受</p>
+<h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a><strong>算法思想</strong></h4><p>通过模拟物理退火的过程，取不断的逼近最优解。物理退火是物体在高温状态，慢慢通过准静态过程降温，不断达到能量较小的状态。模拟退火的重点就是类似这个过程取趋近于目标函数的最优解的过程</p>
+<h4 id="与贪心算法的区别"><a href="#与贪心算法的区别" class="headerlink" title="与贪心算法的区别"></a><strong>与贪心算法的区别</strong></h4><p><strong>贪心算法：</strong>贪心算法不断的尝试领域内的值，若在A点的左边或者右边出现较优解，就将当前最优解更新，若不存在，则当前值为最优解，最终会停在B点作为最优解</p>
+<p><strong>模拟退火算法：</strong>与贪心类似寻找邻域内是否存在更优解，是则更新解，或者满足一定的概率（类似玻尔兹曼分布）将邻域的值作为优解，所以模拟退火算法可以跳出当前局部优解得到D点为最优解</p>
+<p><img src="https://img-blog.csdnimg.cn/20210418145827654.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><strong>模拟退火与物理退火过程对应</strong></p>
+<table>
+<thead>
+<tr>
+<th>模拟退火</th>
+<th>物理退火</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>解</td>
+<td>粒子状态</td>
+</tr>
+<tr>
+<td>目标函数</td>
+<td>能量</td>
+</tr>
+<tr>
+<td>最优解</td>
+<td>能量最低状态</td>
+</tr>
+<tr>
+<td>设定初温</td>
+<td>加温过程</td>
+</tr>
+<tr>
+<td>Metropolis采样</td>
+<td>热平衡，粒子状态满足玻尔兹曼分布</td>
+</tr>
+<tr>
+<td>控制参数下降</td>
+<td>冷却</td>
+</tr>
+</tbody></table>
+<h4 id="拟退火算法伪代码"><a href="#拟退火算法伪代码" class="headerlink" title="拟退火算法伪代码"></a>拟退火算法伪代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> initial solution x_0,x^current &#x3D; x0 &#x2F;&#x2F;初始化值</span><br><span class="line"> set initial temperature T &#x3D; T_0</span><br><span class="line"> while temperature &lt; T_k</span><br><span class="line"> 	for i to T_L</span><br><span class="line"> 		generate randomly a neighbouring solution x′ ∈ N(x^current)&#x2F;&#x2F;随机产生邻域内的值</span><br><span class="line">		compute change of cost ∆C &#x3D; C(x′) − C(x^current) &#x2F;&#x2F;计算差值</span><br><span class="line">		f ∆C ≤ 0 or random(0, 1) &lt; exp(−∆C^kT ) then</span><br><span class="line">		x^current &#x3D; x′ &#x2F;&#x2F;更新当前最优值</span><br><span class="line">	set new temperature T &#x3D; decrease(T) &#x2F;&#x2F;设置新的温度下降值</span><br><span class="line">return solution </span><br></pre></td></tr></table></figure>
+<h4 id="算法实现细节"><a href="#算法实现细节" class="headerlink" title="算法实现细节"></a>算法实现细节</h4><p><strong>初始解生成</strong></p>
+<ul>
+<li>通常使用随机解作为初始解，并保证此解是解空间中的一个解</li>
+</ul>
+<p><strong>临解生成函数</strong></p>
+<ul>
+<li>临解的生成京可能保证所产生的候选解能够遍布解空间</li>
+<li>领域应该尽可能小，能够在少量循环中充分探测解分布，但值变化不应太大</li>
+</ul>
+<p><strong>初始温度</strong></p>
+<ul>
+<li>初始温度尽可能的高，以确保最终温度不受初始解的影响</li>
+<li>均匀抽取样本值，选取方差作为初始温度</li>
+<li>通过升温不断尝试增加温度</li>
+</ul>
+<p><strong>等温步数</strong></p>
+<ul>
+<li>等温步数也称 Metropolis 抽样稳定准则, 用于决定在各温度 下产生候选解的数目. 通常取决于解空间和邻域的大小.</li>
+<li>等温目的使得系统平衡，目标函数的均值是否稳定</li>
+</ul>
+<p><strong>如何降温</strong></p>
+<ul>
+<li><p>经典降温算法<br>$$<br>T(t) = \frac{T}{log(1+t)}<br>$$</p>
+</li>
+<li><p>快速降温<br>$$<br>T(t) = \frac{T_0}{1+t}<br>$$</p>
+</li>
+<li><p>其他 其中  0.8 ≤ α ≤ 0.99<br>$$<br>T(t+\Delta t) = \alpha T(t)<br>$$</p>
+</li>
+</ul>
+<p><strong>花费函数</strong></p>
+<p>花费函数 COST 一般由目标函数来构造. 目标函数, 或目标 函数的倒数/相反数经常直接作为花费函数.</p>
+<p><strong>终止条件</strong></p>
+<ul>
+<li>理论上温度要降为 0 才终止退火算法. 但实际上温度较低时, 尝试的接受概率就几乎为 0 了</li>
+<li>设置终止温度的阈值, 或设置外循环迭代次数.</li>
+<li>算法搜索到的最优值连续若干步保持不变.</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/04/18/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-小程序生命周期" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1185,6 +1360,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">前端 小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
             
             <div class="clearfix"></div>
