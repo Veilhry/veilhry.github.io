@@ -195,7 +195,6 @@
 <p><img src="https://img-blog.csdnimg.cn/2021020815424662.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <p>这仅是对于直接光照而言，加上了对于物体的反射，反射后类似于是新光源从而修正后的算法<br><img src="https://img-blog.csdnimg.cn/20210208154300521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <a id="more"></a>
-
 <p><strong>算法至此完了吗？</strong></p>
 <p>很显然算法现在还存在有问题</p>
 <p><strong>1. 指数爆炸</strong><br><img src="https://img-blog.csdnimg.cn/20210208154315483.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
@@ -203,7 +202,7 @@
 <p>很显然当光线弹射两次以上，计算量就变得超级大，很难计算</p>
 <p><strong>解决</strong> 底数为设置为一，  1^n^ 依旧是1 于是随机取一个方向的光线 用n为一计算蒙特卡洛积分</p>
 <p>对于每次着色都随机选取一个方向发出一根光线，虽然结果非常noisy  但是穿过一个像素可以多次路径追踪 最后平均，同时对于光线的生成对于一个像素 任意的取N个方向  从视点连一根光线到采样的位置  如果光线打到场景中的一个位置  就算出这一点的着色 （注意出射方向需要改变）<br><img src="https://img-blog.csdnimg.cn/20210208154331346.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<p>**2. 递归出口 **</p>
+<p><strong>2. 递归出口 </strong></p>
 <p>对于原算法还没有考虑停止的条件，问题出现在光线的弹射次数 自然情况下光线显然不会停，但是计算机很难达到这种效果，而事先定义好弹射次数会导致能量损失的问题</p>
 <p><strong>解决方法</strong>：俄罗斯轮盘赌——在一定的概率下停下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">取一定的概率p打出下一条光线  </span><br><span class="line"></span><br><span class="line">最终结果L0&#x2F;p  1-p的概率不打出光线  结果为0</span><br><span class="line"></span><br><span class="line">	最终期望：E &#x3D; p*L0&#x2F;p +(1-p)*0 &#x3D; L0 &#x2F;&#x2F;你会发现结果没变仍然是正确的结果</span><br></pre></td></tr></table></figure>
@@ -216,7 +215,7 @@
 <p>对于一个像素着色来源于两个方面</p>
 <ol>
 <li>光源的直接照射(不需要RR)</li>
-<li> 其他非光源物体<br><img src="https://img-blog.csdnimg.cn/20210208154432656.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+<li>其他非光源物体<br><img src="https://img-blog.csdnimg.cn/20210208154432656.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
 </ol>
 <p>其中还有一个小问题 光线传播的过程中是否有物体遮光，从p点线光源连线 如果没有物体遮挡 继续计算</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reflection.norm() - col.distance) &lt;  EPSILON</span><br></pre></td></tr></table></figure>
@@ -470,15 +469,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">前端 css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">

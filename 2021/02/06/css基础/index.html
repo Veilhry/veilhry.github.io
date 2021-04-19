@@ -201,19 +201,19 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">&lt;style type&#x3D;&quot;text&#x2F;CSS&quot;&gt;</span><br><span class="line">    选择器（选择的标签） &#123; </span><br><span class="line">      属性1: 属性值1;</span><br><span class="line">      属性2: 属性值2; </span><br><span class="line">      属性3: 属性值3;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">	 div &#123;</span><br><span class="line">	 	color: red;</span><br><span class="line">	 	font-size: 12px;</span><br><span class="line">	 &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-
 </li>
 </ol>
 <p><strong>注意</strong></p>
 <p>style标签一般位于head标签中，当然理论上他可以放在HTML文档的任何地方，type=”text/css”  在html5中可以省略，且只能控制当前页面信息</p>
-<ol start="3">
+<ol>
 <li><p><strong>外部样式表(链入式)</strong></p>
-<p>就是将所有的样式放在一个或多个以**.CSS**为扩展名的外部样式表文件中，通过link标签将外部样式表链接到HTML中</p>
+<p>就是将所有的样式放在一个或多个以<strong>.CSS</strong>为扩展名的外部样式表文件中，通过link标签将外部样式表链接到HTML中</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;link rel&#x3D;&quot;stylesheet&quot; type&#x3D;&quot;text&#x2F;css&quot; href&#x3D;&quot;css文件路径&quot;&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br></pre></td></tr></table></figure>
 <p><strong>注意</strong></p>
 <p><code>link</code>是单标签，<code>link</code>标签需要放在<code>head</code>头部标签中，并且指定<code>link</code>标签的三个属性</p>
 </li>
 </ol>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -221,7 +221,8 @@
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>rel</td>
 <td>定义当前文档与被链接文档之间的关系，在这里需要指定“stylesheet”,表示所链接的文档是一个样式表</td>
 </tr>
@@ -233,7 +234,9 @@
 <td>href</td>
 <td>定义URL，可以是绝对地址也可以是是相对地址</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h4 id="2-CSS选择器"><a href="#2-CSS选择器" class="headerlink" title="2. CSS选择器"></a>2. CSS选择器</h4><h5 id="2-1-标签选择器"><a href="#2-1-标签选择器" class="headerlink" title="2.1 标签选择器"></a>2.1 标签选择器</h5><p><strong>例如：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h3 &#123; </span><br><span class="line">	color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>先选择出标签，在对该类标签进行操作，对页面中所有的标签都设置统一的颜色</p>
@@ -290,6 +293,7 @@
 </ul>
 </li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -298,7 +302,8 @@
 <th>Unicode 编码</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>宋体(常用)</td>
 <td>SimSun</td>
 <td>\5B8B\4F53</td>
@@ -348,94 +353,112 @@
 <td>PMingLiU</td>
 <td>\65B0\7EC6\660E\4F53</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>3. font-weight字体粗细</strong></p>
-<p>   可以使用<code>b </code>或者<code>strong</code>标签实现，也可以通过font-weight实现</p>
+<p>   可以使用<code>b</code>或者<code>strong</code>标签实现，也可以通过font-weight实现</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>属性值</th>
-<th align="left">描述</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>normal</td>
-<td align="left">默认值（不加粗的）</td>
+<td style="text-align:left">默认值（不加粗的）</td>
 </tr>
 <tr>
 <td>bold</td>
-<td align="left">定义粗体（加粗的）</td>
+<td style="text-align:left">定义粗体（加粗的）</td>
 </tr>
 <tr>
 <td>100~900</td>
-<td align="left">400 等同于 normal，而 700 等同于 bold  我们重点记住这句话</td>
+<td style="text-align:left">400 等同于 normal，而 700 等同于 bold  我们重点记住这句话</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>4. font-style字体风格</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>属性</th>
-<th align="left">作用</th>
+<th style="text-align:left">作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>normal</td>
-<td align="left">默认值，浏览器会显示标准的字体样式  font-style: normal;</td>
+<td style="text-align:left">默认值，浏览器会显示标准的字体样式  font-style: normal;</td>
 </tr>
 <tr>
 <td>italic</td>
-<td align="left">浏览器会显示斜体的字体样式。</td>
+<td style="text-align:left">浏览器会显示斜体的字体样式。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>当然可以直接使用i和em标签</p>
 <p><strong>5. 综合设置字体样式</strong></p>
    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123;font: font-style font-weight font-size&#x2F;line-height font-family;&#125;</span><br></pre></td></tr></table></figure>
 <p>   <strong>注意</strong></p>
 <p>   必须按照以上格式顺序书写，各属性间以空格隔开，不需要设置的可以省略，取默认值，但必须保留font-size 和font-family 属性，否则font属性无效</p>
 <h5 id="3-2-CSS外观属性"><a href="#3-2-CSS外观属性" class="headerlink" title="3.2 CSS外观属性"></a>3.2 CSS外观属性</h5><p><strong>1. color颜色</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">表示表示</th>
-<th align="left">属性值</th>
+<th style="text-align:left">表示表示</th>
+<th style="text-align:left">属性值</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">预定义的颜色值</td>
-<td align="left">red，green，blue，还有我们的御用色 pink</td>
+<tbody>
+<tr>
+<td style="text-align:left">预定义的颜色值</td>
+<td style="text-align:left">red，green，blue，还有我们的御用色 pink</td>
 </tr>
 <tr>
-<td align="left">十六进制</td>
-<td align="left">#FF0000，#FF6600，#29D794</td>
+<td style="text-align:left">十六进制</td>
+<td style="text-align:left">#FF0000，#FF6600，#29D794</td>
 </tr>
 <tr>
-<td align="left">RGB代码</td>
-<td align="left">rgb(255,0,0)或rgb(100%,0%,0%)</td>
+<td style="text-align:left">RGB代码</td>
+<td style="text-align:left">rgb(255,0,0)或rgb(100%,0%,0%)</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>   主要使用16进制</p>
 <p><strong>2. text-align文本水平对齐方式</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>属性</th>
-<th align="center">解释</th>
+<th style="text-align:center">解释</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>left</td>
-<td align="center">左对齐（默认值）</td>
+<td style="text-align:center">左对齐（默认值）</td>
 </tr>
 <tr>
 <td>right</td>
-<td align="center">右对齐</td>
+<td style="text-align:center">右对齐</td>
 </tr>
 <tr>
 <td>center</td>
-<td align="center">居中对齐</td>
+<td style="text-align:center">居中对齐</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>注意 是让内容水平居中而不是盒子本身</li>
 </ul>
@@ -447,6 +470,7 @@
 <li>建议使用em作为设置单位。1em就是一个字的宽度，首行缩进两个字就是 <code>2pm</code></li>
 </ul>
 <p><strong>5. text-decoraton文本装饰</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -454,7 +478,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>none</td>
 <td>默认，定义标准文本，取消下划线</td>
 </tr>
@@ -470,7 +495,9 @@
 <td>line-through</td>
 <td>定义穿过文本的线</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>6. 行高 line-height</strong></p>
 <blockquote>
 <p>文字的行高等于盒子的高度</p>
@@ -485,7 +512,7 @@
 <h4 id="4-sublime快捷操作emmet语法"><a href="#4-sublime快捷操作emmet语法" class="headerlink" title="4. sublime快捷操作emmet语法"></a>4. sublime快捷操作emmet语法</h4><ol>
 <li><p>生成标签 直接输入标签名 按tab键即可   比如  div   然后tab 键， 就可以生成 <div></div></p>
 </li>
-<li><p>如果想要生成多个相同标签  加上 * 就可以了 比如   div*3  就可以快速生成3个div</p>
+<li><p>如果想要生成多个相同标签  加上 <em> 就可以了 比如   div</em>3  就可以快速生成3个div</p>
 </li>
 <li><p>如果有父子级关系的标签，可以用 &gt;  比如   ul &gt; li就可以了</p>
 </li>
@@ -495,12 +522,11 @@
 </li>
 <li><p>如果生成的div 类名是有顺序的， 可以用 自增符号  $     </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.demo$*3        </span><br><span class="line">&lt;div class&#x3D;&quot;demo1&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;demo2&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;demo3&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-
 </li>
 </ol>
 <h4 id="5-CSS复合选择器"><a href="#5-CSS复合选择器" class="headerlink" title="5. CSS复合选择器"></a>5. CSS复合选择器</h4><h5 id="5-1-后代选择器"><a href="#5-1-后代选择器" class="headerlink" title="5.1 后代选择器"></a>5.1 后代选择器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">父级 子级&#123;属性:属性值;&#125;</span><br></pre></td></tr></table></figure>
 <p>当标签发生嵌套时，内层标签则就成为外层标签的后代，且子孙后代都可选择</p>
-<h5 id="5-2-子选择器"><a href="#5-2-子选择器" class="headerlink" title="5.2 子选择器"></a>5.2 子选择器</h5><p>子元素选择器只能选择作为某元素**子元素(亲儿子)**的元素。</p>
+<h5 id="5-2-子选择器"><a href="#5-2-子选择器" class="headerlink" title="5.2 子选择器"></a>5.2 子选择器</h5><p>子元素选择器只能选择作为某元素<strong>子元素(亲儿子)</strong>的元素。</p>
 <p>父子标签通过&gt;连接</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.class&gt;h3&#123;color:red;font-size:14px;&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="5-3-交集选择器"><a href="#5-3-交集选择器" class="headerlink" title="5.3 交集选择器"></a>5.3 交集选择器</h5><p>交集选择器由两个选择器构成，找到的标签必须满足：既有标签一的特点，也有标签二的特点。</p>
@@ -554,6 +580,7 @@
 <h4 id="7-CSS背景-background"><a href="#7-CSS背景-background" class="headerlink" title="7.CSS背景 background"></a>7.CSS背景 background</h4><h5 id="7-1-背景颜色"><a href="#7-1-背景颜色" class="headerlink" title="7.1 背景颜色"></a>7.1 背景颜色</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-color: 颜色值 默认值transparent</span><br></pre></td></tr></table></figure>
 <h5 id="7-2-背景图"><a href="#7-2-背景图" class="headerlink" title="7.2 背景图"></a>7.2 背景图</h5> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-image: none | url(url)</span><br></pre></td></tr></table></figure>
 <h5 id="7-3-背景平铺（repeat）"><a href="#7-3-背景平铺（repeat）" class="headerlink" title="7.3 背景平铺（repeat）"></a>7.3 背景平铺（repeat）</h5> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-repeat : repeat | no-repeat |repeat-x 、repeat-y</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -561,7 +588,8 @@
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>repeat</td>
 <td>默认纵向横向平铺</td>
 </tr>
@@ -577,24 +605,36 @@
 <td>repeat-y</td>
 <td>在纵向平铺</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h5 id="7-4-背景位置"><a href="#7-4-背景位置" class="headerlink" title="7.4 背景位置"></a>7.4 背景位置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">background-position : length || length</span><br><span class="line"></span><br><span class="line">background-position : position || position </span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>参数</th>
-<th align="center">值</th>
+<th style="text-align:center">值</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>length</td>
-<td align="center">百分数 | 由浮点数字和单位标识符组成的长度值</td>
+<td style="text-align:center">百分数 \</td>
+<td>由浮点数字和单位标识符组成的长度值</td>
 </tr>
 <tr>
 <td>position</td>
-<td align="center">top | center | bottom | left | center | right   方位名词</td>
+<td style="text-align:center">top \</td>
+<td>center \</td>
+<td>bottom \</td>
+<td>left \</td>
+<td>center \</td>
+<td>right   方位名词</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>注意</strong></p>
 <ol>
 <li>必须先有background-image</li>
@@ -603,22 +643,26 @@
 <li>坐标必须时x在前y在后，若只有一个坐标默认为x坐标，y为垂直居中</li>
 </ol>
 <h5 id="7-5-背景附着"><a href="#7-5-背景附着" class="headerlink" title="7.5 背景附着"></a>7.5 背景附着</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-attachment : scroll | fixed</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>参数</th>
-<th align="center">作用</th>
+<th style="text-align:center">作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>scroll</td>
-<td align="center">背景图像是随对象内容滚动</td>
+<td style="text-align:center">背景图像是随对象内容滚动</td>
 </tr>
 <tr>
 <td>fixed</td>
-<td align="center">背景图像固定</td>
+<td style="text-align:center">背景图像固定</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h5 id="7-6-背景简写"><a href="#7-6-背景简写" class="headerlink" title="7.6 背景简写"></a>7.6 背景简写</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backgrond : transprat url(url) repeat scroll center top</span><br></pre></td></tr></table></figure>
 <p>书写顺序不严格要求，建议按照以上顺序</p>
 <h5 id="7-6-背景透明"><a href="#7-6-背景透明" class="headerlink" title="7.6 背景透明"></a>7.6 背景透明</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background : rgba(0,0,0,0.3);</span><br></pre></td></tr></table></figure>
@@ -630,6 +674,7 @@
 <p><strong>3. css优先级</strong>‘</p>
 <p>选择器相同会执行层叠性，不同时优先级有不同</p>
 <p><strong>权重计算公式</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -637,7 +682,8 @@
 <th>计算公式</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>继承或者*</td>
 <td>0，0，0，0，</td>
 </tr>
@@ -661,20 +707,22 @@
 <td>每个!important</td>
 <td>无穷大</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>值从左到右，左面的最大，一级大于一级，数位之间没有进制，级别之间不可超越。 </li>
 <li>关于CSS权重，我们需要一套计算公式来去计算，这个就是 CSS Specificity（特殊性）</li>
 </ul>
 <p><strong>权重叠加</strong></p>
 <ul>
-<li><p>div ul  li   ——&gt;      0,0,0,3</p>
+<li><p>div ul  li   ———&gt;      0,0,0,3</p>
 </li>
-<li><p>.nav ul li   ——&gt;      0,0,1,2</p>
+<li><p>.nav ul li   ———&gt;      0,0,1,2</p>
 </li>
-<li><p>a:hover      —–—&gt;   0,0,1,1</p>
+<li><p>a:hover      ——-—&gt;   0,0,1,1</p>
 </li>
-<li><p>.nav a       ——&gt;      0,0,1,1</p>
+<li><p>.nav a       ———&gt;      0,0,1,1</p>
 <p>直接相加不会进位，0，0，0，5+0，0，0，5 =0，0，0，10</p>
 <p><strong>继承的权重是0</strong>    </p>
 </li>
@@ -944,15 +992,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">前端 css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">

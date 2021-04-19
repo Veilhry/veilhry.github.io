@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="https://veilhry.github.io">
   <title>博客搭建的一些注意事项 | Velihry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于博客搭建的一些注意点首先是工具的准备 nodejs : 包含俩个命令 node  npm hexo: 快速、简洁且高效的博客框架,支持markdown 插件和扩展性很好 git：需要安装git 通过git 命令来操作github github账号：github提供了一个github pages功能可以支持站点,是搭建博客的重点 这其中由于国内网络的限制， nodejs 是国外的产品这直接导致在">
+  <meta name="description" content="关于博客搭建的一些注意点首先是工具的准备nodejs : 包含俩个命令 node  npm hexo: 快速、简洁且高效的博客框架,支持markdown 插件和扩展性很好 git：需要安装git 通过git 命令来操作github github账号：github提供了一个github pages功能可以支持站点,是搭建博客的重点 这其中由于国内网络的限制，nodejs 是国外的产品这直接导致在下载">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客搭建的一些注意事项">
 <meta property="og:url" content="https://veilhry.github.io/2021/02/02/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/index.html">
 <meta property="og:site_name" content="Velihry">
-<meta property="og:description" content="关于博客搭建的一些注意点首先是工具的准备 nodejs : 包含俩个命令 node  npm hexo: 快速、简洁且高效的博客框架,支持markdown 插件和扩展性很好 git：需要安装git 通过git 命令来操作github github账号：github提供了一个github pages功能可以支持站点,是搭建博客的重点 这其中由于国内网络的限制， nodejs 是国外的产品这直接导致在">
+<meta property="og:description" content="关于博客搭建的一些注意点首先是工具的准备nodejs : 包含俩个命令 node  npm hexo: 快速、简洁且高效的博客框架,支持markdown 插件和扩展性很好 git：需要安装git 通过git 命令来操作github github账号：github提供了一个github pages功能可以支持站点,是搭建博客的重点 这其中由于国内网络的限制，nodejs 是国外的产品这直接导致在下载">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210207161729292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="article:published_time" content="2021-02-02T07:29:52.000Z">
@@ -177,18 +177,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="关于博客搭建的一些注意点"><a href="#关于博客搭建的一些注意点" class="headerlink" title="关于博客搭建的一些注意点"></a>关于博客搭建的一些注意点</h3><h4 id="首先是工具的准备"><a href="#首先是工具的准备" class="headerlink" title="首先是工具的准备"></a>首先是工具的准备</h4><p><code> nodejs</code> : 包含俩个命令 <code>node</code>  <code>npm</code></p>
+        <h3 id="关于博客搭建的一些注意点"><a href="#关于博客搭建的一些注意点" class="headerlink" title="关于博客搭建的一些注意点"></a>关于博客搭建的一些注意点</h3><h4 id="首先是工具的准备"><a href="#首先是工具的准备" class="headerlink" title="首先是工具的准备"></a>首先是工具的准备</h4><p><code>nodejs</code> : 包含俩个命令 <code>node</code>  <code>npm</code></p>
 <p><code>hexo</code>: 快速、简洁且高效的博客框架,支持markdown 插件和扩展性很好</p>
 <p><code>git</code>：需要安装git 通过git 命令来操作github</p>
 <p><code>github</code>账号：github提供了一个github pages功能可以支持站点,是搭建博客的重点</p>
-<p>这其中由于国内网络的限制，<code> nodejs</code> 是国外的产品这直接导致在下载时下载速度极慢而且很容易断</p>
+<p>这其中由于国内网络的限制，<code>nodejs</code> 是国外的产品这直接导致在下载时下载速度极慢而且很容易断</p>
 <p>下载地址： <a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/node/v12.20.0/">https://npm.taobao.org/mirrors/node/v12.20.0/</a> 这个时国内的地址，速度较友好</p>
 <h4 id="hexo操作"><a href="#hexo操作" class="headerlink" title="hexo操作"></a>hexo操作</h4><p><strong>首先通过git 临时更换npm 源</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br><span class="line">$ npm config get registry</span><br><span class="line">https:&#x2F;&#x2F;registry.npm.taobao.org&#x2F;</span><br></pre></td></tr></table></figure>
 <p><strong>通过npm来安装hexo，通过以下俩个命令安装需要一点时间，其中blog目录就是博客目录，根据自己情况选择目录,</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g  </span><br><span class="line">hexo init blog            </span><br><span class="line">cd blog</span><br><span class="line">npm install       </span><br><span class="line">hexo server </span><br></pre></td></tr></table></figure>
-<p><code>hexo server </code>是临时在本地开启一个端口，支持本机访问，可以通过这个命令预览页面</p>
-<h4 id="github操作"><a href="#github操作" class="headerlink" title="github操作"></a>github操作</h4><p>命名仓库名字的时候需要尤其注意：**仓库名字必须是：<code> xxx.github.io</code>**否则后续无法通过<a target="_blank" rel="noopener" href="https://xxx.github.io/">https://xxx.github.io/</a> 的域名访问</p>
+<p><code>hexo server</code>是临时在本地开启一个端口，支持本机访问，可以通过这个命令预览页面</p>
+<h4 id="github操作"><a href="#github操作" class="headerlink" title="github操作"></a>github操作</h4><p>命名仓库名字的时候需要尤其注意：<strong>仓库名字必须是：<code>xxx.github.io</code></strong>否则后续无法通过<a target="_blank" rel="noopener" href="https://xxx.github.io/">https://xxx.github.io/</a> 的域名访问</p>
 <p><img src="https://img-blog.csdnimg.cn/20210207161729292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <p>设置分支的时候也需要将分支名称改为<code>master</code> ,一般可能默认是<code>main</code> 可以通过settings来设置</p>
 <h4 id="配置-SSH-key"><a href="#配置-SSH-key" class="headerlink" title="配置 SSH key"></a>配置 SSH key</h4><p>使用Git-Bash工具 先设置全局账户</p>
@@ -197,7 +197,6 @@
 <figure class="highlight plain"><figcaption><span>-t rsa</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
 <p>执行后一路敲回车，完成后将id_rsa.pub用记事本打开复制 添加到GitHub上</p>
 <a id="more"></a>
-
 <h4 id="hexo文件部署"><a href="#hexo文件部署" class="headerlink" title="hexo文件部署"></a>hexo文件部署</h4><p>记事本打开 <code>_config.yml</code>文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">language: zh-CN</span><br><span class="line">...</span><br><span class="line">url: https:&#x2F;&#x2F;veilhry.github.io #网站名字改成自己的</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  branch: main</span><br><span class="line">  repo: </span><br><span class="line">    github: https:&#x2F;&#x2F;github.com&#x2F;budongshu&#x2F;veilhry.github.io.git #仓库名字改成自己的</span><br></pre></td></tr></table></figure>
 <p>修改语言 url 以及deploy信息</p>
@@ -205,19 +204,21 @@
 <p><code>npm install hexo-deployer-git --save</code></p>
 <p>最后执行 (g 是 generate 缩写，d 是 deploy 缩写)</p>
 <p><code>hexo g -d</code></p>
-<h4 id="hexo有关命令"><a href="#hexo有关命令" class="headerlink" title="hexo有关命令"></a>hexo有关命令</h4><table>
+<h4 id="hexo有关命令"><a href="#hexo有关命令" class="headerlink" title="hexo有关命令"></a>hexo有关命令</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>命令</th>
 <th>功能</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>$ hexo clean</td>
 <td>清理缓存文件 （） 和生成的文件 （）</td>
 </tr>
 <tr>
-<td>hexo  -d, –deploy</td>
+<td>hexo  -d, —deploy</td>
 <td>生成完成后部署</td>
 </tr>
 <tr>
@@ -225,10 +226,12 @@
 <td>新建一篇名为xxx的文章</td>
 </tr>
 <tr>
-<td>hexo -p<code>,</code>–path</td>
+<td>hexo -p<code>,</code>—path</td>
 <td>自定义帖子的路径。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 
       
 
@@ -469,15 +472,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">前端 css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -174,10 +174,13 @@
       
         <p><strong>模拟退火 (Simulated Annealing):</strong> 它是一种通过模拟物理退 火过程搜索最优解的方法.</p>
 <h4 id="题目示例"><a href="#题目示例" class="headerlink" title="题目示例"></a>题目示例</h4><p>旅行商问题（TSP): 假设有一个旅行商人要拜访 n 个城市, d<sub>ij</sub> 表 示两城市间距离. x<sub>ij</sub>为 0,1 变量, 表示拜访路径是否包函路径 d<sub>ij</sub>.</p>
-<p><strong>约束条件：</strong>通过n个城市后最终回到起点<br>$$<br>约束条件：\sum_{i=0}^n x_{ij} = \sum_{j=0}^nx_{ij}=1<br>$$</p>
-<p>$$<br>&lt;Empty \space Math \space Block&gt;<br>$$</p>
-<p><strong>目标：</strong><br>$$<br>min \sum_{i\neq j}d_{ij}x_{ij}<br>$$<br>以第一个城市为始终点, 计算任意一条路径 [1, i<sub>2</sub>, · · · , i<sub>n</sub>, 1] 的长度的基本运算为两两城市间距离求和, 基本操作次数为 n. 路径的条数为 (n−1)!. 求和运算的总次数为(n−1)!×n = n!.</p>
+<p><strong>约束条件：</strong>通过n个城市后最终回到起点</p>
+<script type="math/tex; mode=display">
+约束条件：\sum_{i=0}^n x_{ij} = \sum_{j=0}^nx_{ij}=1</script><p><strong>目标：</strong></p>
+<script type="math/tex; mode=display">
+min \sum_{i\neq j}d_{ij}x_{ij}</script><p>以第一个城市为始终点, 计算任意一条路径 [1, i<sub>2</sub>, · · · , i<sub>n</sub>, 1] 的长度的基本运算为两两城市间距离求和, 基本操作次数为 n. 路径的条数为 (n−1)!. 求和运算的总次数为(n−1)!×n = n!.</p>
 <p>若只通过枚举法求解：假设计算机每秒计算24个城市</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -189,7 +192,8 @@
 <th>30</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>计算时间</td>
 <td>1s</td>
 <td>10m</td>
@@ -197,13 +201,16 @@
 <td>136.5d</td>
 <td>10.8y</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>所以靠暴力枚举法求解，所花销的时间复杂度是难以忍受的，而使用模拟退火算法，收敛速度会更加能够接受</p>
 <h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a><strong>算法思想</strong></h4><p>通过模拟物理退火的过程，取不断的逼近最优解。物理退火是物体在高温状态，慢慢通过准静态过程降温，不断达到能量较小的状态。模拟退火的重点就是类似这个过程取趋近于目标函数的最优解的过程</p>
 <h4 id="与贪心算法的区别"><a href="#与贪心算法的区别" class="headerlink" title="与贪心算法的区别"></a><strong>与贪心算法的区别</strong></h4><p><strong>贪心算法：</strong>贪心算法不断的尝试领域内的值，若在A点的左边或者右边出现较优解，就将当前最优解更新，若不存在，则当前值为最优解，最终会停在B点作为最优解</p>
 <p><strong>模拟退火算法：</strong>与贪心类似寻找邻域内是否存在更优解，是则更新解，或者满足一定的概率（类似玻尔兹曼分布）将邻域的值作为优解，所以模拟退火算法可以跳出当前局部优解得到D点为最优解</p>
 <p><img src="https://img-blog.csdnimg.cn/20210418145827654.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <p><strong>模拟退火与物理退火过程对应</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -211,7 +218,8 @@
 <th>物理退火</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>解</td>
 <td>粒子状态</td>
 </tr>
@@ -235,7 +243,9 @@
 <td>控制参数下降</td>
 <td>冷却</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h4 id="拟退火算法伪代码"><a href="#拟退火算法伪代码" class="headerlink" title="拟退火算法伪代码"></a>拟退火算法伪代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> initial solution x_0,x^current &#x3D; x0 &#x2F;&#x2F;初始化值</span><br><span class="line"> set initial temperature T &#x3D; T_0</span><br><span class="line"> while temperature &lt; T_k</span><br><span class="line"> 	for i to T_L</span><br><span class="line"> 		generate randomly a neighbouring solution x′ ∈ N(x^current)&#x2F;&#x2F;随机产生邻域内的值</span><br><span class="line">		compute change of cost ∆C &#x3D; C(x′) − C(x^current) &#x2F;&#x2F;计算差值</span><br><span class="line">		f ∆C ≤ 0 or random(0, 1) &lt; exp(−∆C^kT ) then</span><br><span class="line">		x^current &#x3D; x′ &#x2F;&#x2F;更新当前最优值</span><br><span class="line">	set new temperature T &#x3D; decrease(T) &#x2F;&#x2F;设置新的温度下降值</span><br><span class="line">return solution </span><br></pre></td></tr></table></figure>
 <h4 id="算法实现细节"><a href="#算法实现细节" class="headerlink" title="算法实现细节"></a>算法实现细节</h4><p><strong>初始解生成</strong></p>
 <ul>
@@ -259,12 +269,15 @@
 </ul>
 <p><strong>如何降温</strong></p>
 <ul>
-<li><p>经典降温算法<br>$$<br>T(t) = \frac{T}{log(1+t)}<br>$$</p>
-</li>
-<li><p>快速降温<br>$$<br>T(t) = \frac{T_0}{1+t}<br>$$</p>
-</li>
-<li><p>其他 其中  0.8 ≤ α ≤ 0.99<br>$$<br>T(t+\Delta t) = \alpha T(t)<br>$$</p>
-</li>
+<li><p>经典降温算法</p>
+<script type="math/tex; mode=display">
+T(t) = \frac{T}{log(1+t)}</script></li>
+<li><p>快速降温</p>
+<script type="math/tex; mode=display">
+T(t) = \frac{T_0}{1+t}</script></li>
+<li><p>其他 其中  0.8 ≤ α ≤ 0.99</p>
+<script type="math/tex; mode=display">
+T(t+\Delta t) = \alpha T(t)</script></li>
 </ul>
 <p><strong>花费函数</strong></p>
 <p>花费函数 COST 一般由目标函数来构造. 目标函数, 或目标 函数的倒数/相反数经常直接作为花费函数.</p>
@@ -349,6 +362,7 @@
       
         <h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>首先小程序的生命周期函数是在<code>app.js</code>里面调用的，<code>App(Object)</code>函数用来注册一个小程序。接受一个 <code>Object</code> 参数，指定其小程序的生命周期回调；一般有<code>onLaunch</code>监听小程序初始化、<code>onShow</code>监听小程序显示、<code>onHide</code>监听小程序隐藏等生命周期回调函数。</p>
 <h4 id="应用生命周期"><a href="#应用生命周期" class="headerlink" title="应用生命周期"></a>应用生命周期</h4><p>生命周期主要指在小程序运行的过程中,所触发的监听函数以及所需要的数据</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -356,7 +370,8 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>onLaunch</td>
 <td>监听小程序的初始化</td>
 </tr>
@@ -376,15 +391,19 @@
 <td>onPageNotFound</td>
 <td>页面不存在的监听函数</td>
 </tr>
-</tbody></table>
-<h4 id="页面生命周期"><a href="#页面生命周期" class="headerlink" title="页面生命周期"></a>页面生命周期</h4><table>
+</tbody>
+</table>
+</div>
+<h4 id="页面生命周期"><a href="#页面生命周期" class="headerlink" title="页面生命周期"></a>页面生命周期</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>属性</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>data</td>
 <td>页面初始数据(Object类型)</td>
 </tr>
@@ -432,7 +451,9 @@
 <td>onTabitemTap</td>
 <td>当前是Tab时,点击当前tab页的事件</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>具体细节</strong></p>
 <ol>
 <li><p>程序启动时<br>第一执行onLauch函数——当小程序初始化完成时，会触发 onLaunch（全局只触发一次）<br>第二执行onShow函数——当小程序启动，或从后台进入前台显示，会触发 onShow</p>
@@ -523,7 +544,7 @@
 <li><strong>let声明旨在所处块级有效</strong>，而var不具有块级作用域特性</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if(true) &#123;</span><br><span class="line">let a &#x3D; 10;</span><br><span class="line">&#125;</span><br><span class="line">console.log(a) &#x2F;&#x2F; 报错，a未被声明</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<ol>
 <li><strong>不存在变量提升</strong>，需要先定义后使用，而var存在变量提升</li>
 <li><strong>无法声明之前已经声明的变量</strong>,防止循环变量变成全局变量</li>
 </ol>
@@ -693,6 +714,7 @@
         <h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><p>定位就是将盒子<strong>定</strong>在某一个位置，自由<strong>漂浮</strong>在其他盒子上（包括标准以及浮动）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">定位 &#x3D; 定位模式 + 边偏移</span><br></pre></td></tr></table></figure>
 <h4 id="1-边偏移"><a href="#1-边偏移" class="headerlink" title="1. 边偏移"></a>1. 边偏移</h4><p>边偏移的值可以控制盒子的移动位置，并通过方位名词<code>top</code>、<code>bottom</code>、<code>left</code> 和 <code>right</code> 定义元素的边偏移</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -700,7 +722,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>top</td>
 <td>顶端偏移量，定义元素距离父元素的上边线的值</td>
 </tr>
@@ -716,7 +739,9 @@
 <td>right</td>
 <td>右侧偏移量，定义元素距离父元素的右边线的值</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top: 10px</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2021/02/08/css%E5%9F%BA%E7%A1%80-%E5%AE%9A%E4%BD%8D/#more">more >></a>
@@ -798,6 +823,7 @@
 <p><strong>标准盒子模型</strong></p>
 <p><img src="https://img-blog.csdnimg.cn/20210223135552884.png#pic_center" alt="在这里插入图片描述"></p>
 <h4 id="2-盒子边框（border）"><a href="#2-盒子边框（border）" class="headerlink" title="2. 盒子边框（border）"></a>2. 盒子边框（border）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border : border-width || border-style || border-color</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -805,7 +831,8 @@
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>border-width</td>
 <td>定义边框粗细，单位px</td>
 </tr>
@@ -817,7 +844,9 @@
 <td>border-color</td>
 <td>定义边框颜色</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>边框样式</strong></p>
 <ul>
 <li>none：无边框</li>
@@ -1014,7 +1043,7 @@
 <h4 id="2-html标签分类"><a href="#2-html标签分类" class="headerlink" title="2.  html标签分类"></a>2.  html标签分类</h4></li>
 </ul>
 <p>常规标签（双标签）</p>
-<p>&lt;标签名&gt;内容&lt;/标签名&gt; 比如<body> …</body></p>
+<p>&lt;标签名&gt;内容&lt;/标签名&gt; 比如<body> ...</body></p>
 <p>占主要 结束标签带有“/”</p>
 <p>空元素</p>
 <p>&lt;标签名 /&gt; 比如 <br /> 需要结尾，比较少</p>
@@ -1176,18 +1205,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="关于博客搭建的一些注意点"><a href="#关于博客搭建的一些注意点" class="headerlink" title="关于博客搭建的一些注意点"></a>关于博客搭建的一些注意点</h3><h4 id="首先是工具的准备"><a href="#首先是工具的准备" class="headerlink" title="首先是工具的准备"></a>首先是工具的准备</h4><p><code> nodejs</code> : 包含俩个命令 <code>node</code>  <code>npm</code></p>
+        <h3 id="关于博客搭建的一些注意点"><a href="#关于博客搭建的一些注意点" class="headerlink" title="关于博客搭建的一些注意点"></a>关于博客搭建的一些注意点</h3><h4 id="首先是工具的准备"><a href="#首先是工具的准备" class="headerlink" title="首先是工具的准备"></a>首先是工具的准备</h4><p><code>nodejs</code> : 包含俩个命令 <code>node</code>  <code>npm</code></p>
 <p><code>hexo</code>: 快速、简洁且高效的博客框架,支持markdown 插件和扩展性很好</p>
 <p><code>git</code>：需要安装git 通过git 命令来操作github</p>
 <p><code>github</code>账号：github提供了一个github pages功能可以支持站点,是搭建博客的重点</p>
-<p>这其中由于国内网络的限制，<code> nodejs</code> 是国外的产品这直接导致在下载时下载速度极慢而且很容易断</p>
+<p>这其中由于国内网络的限制，<code>nodejs</code> 是国外的产品这直接导致在下载时下载速度极慢而且很容易断</p>
 <p>下载地址： <a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/node/v12.20.0/">https://npm.taobao.org/mirrors/node/v12.20.0/</a> 这个时国内的地址，速度较友好</p>
 <h4 id="hexo操作"><a href="#hexo操作" class="headerlink" title="hexo操作"></a>hexo操作</h4><p><strong>首先通过git 临时更换npm 源</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br><span class="line">$ npm config get registry</span><br><span class="line">https:&#x2F;&#x2F;registry.npm.taobao.org&#x2F;</span><br></pre></td></tr></table></figure>
 <p><strong>通过npm来安装hexo，通过以下俩个命令安装需要一点时间，其中blog目录就是博客目录，根据自己情况选择目录,</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g  </span><br><span class="line">hexo init blog            </span><br><span class="line">cd blog</span><br><span class="line">npm install       </span><br><span class="line">hexo server </span><br></pre></td></tr></table></figure>
-<p><code>hexo server </code>是临时在本地开启一个端口，支持本机访问，可以通过这个命令预览页面</p>
-<h4 id="github操作"><a href="#github操作" class="headerlink" title="github操作"></a>github操作</h4><p>命名仓库名字的时候需要尤其注意：**仓库名字必须是：<code> xxx.github.io</code>**否则后续无法通过<a target="_blank" rel="noopener" href="https://xxx.github.io/">https://xxx.github.io/</a> 的域名访问</p>
+<p><code>hexo server</code>是临时在本地开启一个端口，支持本机访问，可以通过这个命令预览页面</p>
+<h4 id="github操作"><a href="#github操作" class="headerlink" title="github操作"></a>github操作</h4><p>命名仓库名字的时候需要尤其注意：<strong>仓库名字必须是：<code>xxx.github.io</code></strong>否则后续无法通过<a target="_blank" rel="noopener" href="https://xxx.github.io/">https://xxx.github.io/</a> 的域名访问</p>
 <p><img src="https://img-blog.csdnimg.cn/20210207161729292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <p>设置分支的时候也需要将分支名称改为<code>master</code> ,一般可能默认是<code>main</code> 可以通过settings来设置</p>
 <h4 id="配置-SSH-key"><a href="#配置-SSH-key" class="headerlink" title="配置 SSH key"></a>配置 SSH key</h4><p>使用Git-Bash工具 先设置全局账户</p>
@@ -1347,15 +1376,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">前端 css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">

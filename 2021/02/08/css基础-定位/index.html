@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="https://veilhry.github.io">
   <title>css基础-定位 | Velihry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="定位定位就是将盒子定在某一个位置，自由漂浮在其他盒子上（包括标准以及浮动） 1定位 &#x3D; 定位模式 + 边偏移 1. 边偏移边偏移的值可以控制盒子的移动位置，并通过方位名词top、bottom、left 和 right 定义元素的边偏移    属性 描述    top 顶端偏移量，定义元素距离父元素的上边线的值   bottom 底部偏移量，定义元素距离父元素的下边线的值   left 左">
+  <meta name="description" content="定位定位就是将盒子定在某一个位置，自由漂浮在其他盒子上（包括标准以及浮动） 1定位 &#x3D; 定位模式 + 边偏移 1. 边偏移边偏移的值可以控制盒子的移动位置，并通过方位名词top、bottom、left 和 right 定义元素的边偏移     属性 描述     top 顶端偏移量，定义元素距离父元素的上边线的值   bottom 底部偏移量，定义元素距离父元素的下边线的值   left">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css基础-定位">
 <meta property="og:url" content="https://veilhry.github.io/2021/02/08/css%E5%9F%BA%E7%A1%80-%E5%AE%9A%E4%BD%8D/index.html">
 <meta property="og:site_name" content="Velihry">
-<meta property="og:description" content="定位定位就是将盒子定在某一个位置，自由漂浮在其他盒子上（包括标准以及浮动） 1定位 &#x3D; 定位模式 + 边偏移 1. 边偏移边偏移的值可以控制盒子的移动位置，并通过方位名词top、bottom、left 和 right 定义元素的边偏移    属性 描述    top 顶端偏移量，定义元素距离父元素的上边线的值   bottom 底部偏移量，定义元素距离父元素的下边线的值   left 左">
+<meta property="og:description" content="定位定位就是将盒子定在某一个位置，自由漂浮在其他盒子上（包括标准以及浮动） 1定位 &#x3D; 定位模式 + 边偏移 1. 边偏移边偏移的值可以控制盒子的移动位置，并通过方位名词top、bottom、left 和 right 定义元素的边偏移     属性 描述     top 顶端偏移量，定义元素距离父元素的上边线的值   bottom 底部偏移量，定义元素距离父元素的下边线的值   left">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2021022315395656.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210223154017477.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center">
@@ -185,6 +185,7 @@
         <h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><p>定位就是将盒子<strong>定</strong>在某一个位置，自由<strong>漂浮</strong>在其他盒子上（包括标准以及浮动）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">定位 &#x3D; 定位模式 + 边偏移</span><br></pre></td></tr></table></figure>
 <h4 id="1-边偏移"><a href="#1-边偏移" class="headerlink" title="1. 边偏移"></a>1. 边偏移</h4><p>边偏移的值可以控制盒子的移动位置，并通过方位名词<code>top</code>、<code>bottom</code>、<code>left</code> 和 <code>right</code> 定义元素的边偏移</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -192,7 +193,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>top</td>
 <td>顶端偏移量，定义元素距离父元素的上边线的值</td>
 </tr>
@@ -208,11 +210,13 @@
 <td>right</td>
 <td>右侧偏移量，定义元素距离父元素的右边线的值</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top: 10px</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-
 <h4 id="2-定位模式"><a href="#2-定位模式" class="headerlink" title="2.定位模式"></a>2.定位模式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123;position: 属性值; &#125;</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -220,7 +224,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>static</td>
 <td>静态定位</td>
 </tr>
@@ -236,7 +241,9 @@
 <td>fixed</td>
 <td>固定定位</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h5 id="2-1-静态定位"><a href="#2-1-静态定位" class="headerlink" title="2.1 静态定位"></a>2.1 静态定位</h5><ul>
 <li><strong>静态定位</strong>是元素的默认定位方式，无定位的意思。它相当于 border 里面的none， 不要定位的时候用。</li>
 <li>静态定位 按照标准流特性摆放位置，它没有边偏移。</li>
@@ -253,7 +260,7 @@
 <li>父元素没有定位则以<strong>浏览器</strong>为参照定位</li>
 </ol>
 <p><img src="https://img-blog.csdnimg.cn/20210223154017477.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
-<ol start="3">
+<ol>
 <li><p>父元素有定位</p>
 <p>将元素依据最近的已经定位（绝对、固定或相对定位）的父元素（祖先）进行定位。</p>
 <p><img src="https://img-blog.csdnimg.cn/20210223154042324.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
@@ -550,15 +557,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">前端 css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">

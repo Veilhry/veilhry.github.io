@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="https://veilhry.github.io">
   <title>css基础-盒子模型与浮动 | Velihry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="盒子模型网页布局的本质在于通过css布局将盒子模型摆放至合适的位置，再放入所需元素 1. 盒子模型（Box Model）盒子模型有元素内容，内边距，外边距，边框组成 标准盒子模型  2. 盒子边框（border）1border : border-width || border-style || border-color    属性 作用    border-width 定义边框粗细，单位px">
+  <meta name="description" content="盒子模型网页布局的本质在于通过css布局将盒子模型摆放至合适的位置，再放入所需元素 1. 盒子模型（Box Model）盒子模型有元素内容，内边距，外边距，边框组成 标准盒子模型  2. 盒子边框（border）1border : border-width || border-style || border-color     属性 作用     border-width 定义边框粗细，单位px">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css基础-盒子模型与浮动">
 <meta property="og:url" content="https://veilhry.github.io/2021/02/07/css%E5%9F%BA%E7%A1%80-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E4%B8%8E%E6%B5%AE%E5%8A%A8/index.html">
 <meta property="og:site_name" content="Velihry">
-<meta property="og:description" content="盒子模型网页布局的本质在于通过css布局将盒子模型摆放至合适的位置，再放入所需元素 1. 盒子模型（Box Model）盒子模型有元素内容，内边距，外边距，边框组成 标准盒子模型  2. 盒子边框（border）1border : border-width || border-style || border-color    属性 作用    border-width 定义边框粗细，单位px">
+<meta property="og:description" content="盒子模型网页布局的本质在于通过css布局将盒子模型摆放至合适的位置，再放入所需元素 1. 盒子模型（Box Model）盒子模型有元素内容，内边距，外边距，边框组成 标准盒子模型  2. 盒子边框（border）1border : border-width || border-style || border-color     属性 作用     border-width 定义边框粗细，单位px">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210223135552884.png#pic_center">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210223135627614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center">
@@ -186,6 +186,7 @@
 <p><strong>标准盒子模型</strong></p>
 <p><img src="https://img-blog.csdnimg.cn/20210223135552884.png#pic_center" alt="在这里插入图片描述"></p>
 <h4 id="2-盒子边框（border）"><a href="#2-盒子边框（border）" class="headerlink" title="2. 盒子边框（border）"></a>2. 盒子边框（border）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border : border-width || border-style || border-color</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -193,7 +194,8 @@
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>border-width</td>
 <td>定义边框粗细，单位px</td>
 </tr>
@@ -205,7 +207,9 @@
 <td>border-color</td>
 <td>定义边框颜色</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>边框样式</strong></p>
 <ul>
 <li>none：无边框</li>
@@ -217,7 +221,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border-top-style:样式; border-top-width:宽度;border-top-color:颜色;border-top:宽度 样式 颜色;</span><br></pre></td></tr></table></figure>
 <p><code>bottom,left,right</code>以此类推</p>
 <a id="more"></a>
-
 <p><strong>表格边框</strong></p>
 <p>通过<code>cellspacing=0</code>单元格距离为0，但是两个单元格之间的边框重叠会是边框变粗，通过css属性</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">table&#123;border-collapse:collapse&#125;</span><br></pre></td></tr></table></figure>
@@ -230,38 +233,42 @@
 <ul>
 <li><p>如果4个角，数值相同</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">border-radius</span>: 15<span class="selector-tag">px</span>;</span><br></pre></td></tr></table></figure></li>
-<li><p>里面数值不同，我们也可以按照简写的形式，具体格式如下:</p>
-</li>
+<li>里面数值不同，我们也可以按照简写的形式，具体格式如下:</li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">border-radius</span>: 左上角 右上角  右下角  左下角;</span><br></pre></td></tr></table></figure>
 <p>还是遵循的顺时针。</p>
 <h4 id="3-内边距（padding）"><a href="#3-内边距（padding）" class="headerlink" title="3. 内边距（padding）"></a>3. 内边距（padding）</h4><p>边框与内容之间的间距</p>
 <p><img src="https://img-blog.csdnimg.cn/20210223135627614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>属性</th>
-<th align="left">作用</th>
+<th style="text-align:left">作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>padding-left</td>
-<td align="left">左内边距</td>
+<td style="text-align:left">左内边距</td>
 </tr>
 <tr>
 <td>padding-right</td>
-<td align="left">右内边距</td>
+<td style="text-align:left">右内边距</td>
 </tr>
 <tr>
 <td>padding-top</td>
-<td align="left">上内边距</td>
+<td style="text-align:left">上内边距</td>
 </tr>
 <tr>
 <td>padding-bottom</td>
-<td align="left">下内边距</td>
+<td style="text-align:left">下内边距</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>也可以简写</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -269,7 +276,8 @@
 <th>含义</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>1</td>
 <td>padding：上下左右内边距</td>
 </tr>
@@ -285,7 +293,9 @@
 <td>4</td>
 <td>padding：上 右 下 左（顺时针）</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>内盒尺寸计算</strong></p>
 <ul>
 <li><p>宽度</p>
@@ -299,30 +309,34 @@
 </ul>
 <p><strong>当未直接给出width时，padding不会撑开盒子，否则会</strong></p>
 <h4 id="4-外边距（margin）"><a href="#4-外边距（margin）" class="headerlink" title="4. 外边距（margin）"></a>4. 外边距（margin）</h4><p>外边距是控制盒子与盒子之间的距离</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
 <th>属性</th>
-<th align="left">作用</th>
+<th style="text-align:left">作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>margin-left</td>
-<td align="left">左外边距</td>
+<td style="text-align:left">左外边距</td>
 </tr>
 <tr>
 <td>margin-right</td>
-<td align="left">右外边距</td>
+<td style="text-align:left">右外边距</td>
 </tr>
 <tr>
 <td>margin-top</td>
-<td align="left">上外边距</td>
+<td style="text-align:left">上外边距</td>
 </tr>
 <tr>
 <td>margin-bottom</td>
-<td align="left">下外边距</td>
+<td style="text-align:left">下外边距</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>同样类似于padding有类似的写法</li>
 </ul>
@@ -337,8 +351,8 @@
 </ul>
 <p><strong>文字居中与盒子居中的区别</strong></p>
 <ol>
-<li> 盒子内的文字水平居中是  text-align: center,  而且还可以让 行内元素和行内块居中对齐</li>
-<li> 块级盒子水平居中  左右margin 改为 auto </li>
+<li>盒子内的文字水平居中是  text-align: center,  而且还可以让 行内元素和行内块居中对齐</li>
+<li>块级盒子水平居中  左右margin 改为 auto </li>
 </ol>
 <p><strong>插入图片与背景图片区别</strong></p>
 <ol>
@@ -370,6 +384,7 @@
 <p>稳定性依次减小，padding会撑开盒子，margin在合并时也会有问题</p>
 <h4 id="5-margin-负值压住边框"><a href="#5-margin-负值压住边框" class="headerlink" title="5. margin 负值压住边框"></a>5. margin 负值压住边框</h4><p>margin负值移动边框大小，可以将排列在一起的边框重叠在一起，避免出现边框变粗的现象</p>
 <h4 id="6-盒子阴影"><a href="#6-盒子阴影" class="headerlink" title="6.盒子阴影"></a>6.盒子阴影</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow:水平阴影 垂直阴影 模糊距离（虚实）  阴影尺寸（影子大小）  阴影颜色  内&#x2F;外阴影；&#x2F;*单位px*&#x2F;</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -377,7 +392,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>h-shadow</td>
 <td>必需，水平阴影，负值在左边</td>
 </tr>
@@ -401,7 +417,9 @@
 <td>inset</td>
 <td>可选，内阴影</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>注意</strong></p>
 <p>水平垂直阴影必须，其余可以省略，外阴影（outset）默认不写</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">	box-shadow:0 15px 20px rgba(0,0,0,.5)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -417,6 +435,7 @@
 <p>将盒子定位于浏览器中的某一位置</p>
 <h4 id="2-浮动使用"><a href="#2-浮动使用" class="headerlink" title="2. 浮动使用"></a>2. 浮动使用</h4><p>通过浮动可以使得多个div水平排列一行，且之间没有空白缝隙，实现左右对齐，最早使用于图片，实现文字环绕效果</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123;float: 值;&#125;</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -424,7 +443,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>none</td>
 <td>不浮动（默认）</td>
 </tr>
@@ -436,7 +456,9 @@
 <td>right</td>
 <td>元素向右浮动</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>注意</strong></p>
 <ol>
 <li><p>“浮动托标” 使用浮动后，元素会脱离标准流，后续的标准流会移动至浮动盒子底下，浮动元素会“漂浮”</p>
@@ -459,6 +481,7 @@
 <h4 id="4-清除浮动"><a href="#4-清除浮动" class="headerlink" title="4.清除浮动"></a>4.清除浮动</h4><p>很多子元素浮动后，父元素很难直接给出高度，最后父级盒子高度为0，对于以后的标准流盒子会有影响，对于标准流，子盒子会撑开盒子，而浮动不会。</p>
 <p><strong>清除就是为了消除浮动布局对于后续排版影响，主要是解决父元素高度为0的问题</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器 &#123;clear: 属性值;&#125;</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -466,7 +489,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>left</td>
 <td>不允许左侧有浮动元素（消除左侧浮动影响）</td>
 </tr>
@@ -478,7 +502,9 @@
 <td>both</td>
 <td>同时清除左右浮动元素</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ol>
 <li><p>额外标签法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">是W3C推荐的做法是通过在浮动元素末尾添加一个空的标签例如 &lt;div style&#x3D;”clear:both”&gt;&lt;&#x2F;div&gt;，或则其他标签br等亦可。</span><br></pre></td></tr></table></figure>
@@ -761,15 +787,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">前端 css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">

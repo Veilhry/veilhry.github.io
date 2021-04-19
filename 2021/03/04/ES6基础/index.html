@@ -180,7 +180,7 @@
 <li><strong>let声明旨在所处块级有效</strong>，而var不具有块级作用域特性</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if(true) &#123;</span><br><span class="line">let a &#x3D; 10;</span><br><span class="line">&#125;</span><br><span class="line">console.log(a) &#x2F;&#x2F; 报错，a未被声明</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<ol>
 <li><strong>不存在变量提升</strong>，需要先定义后使用，而var存在变量提升</li>
 <li><strong>无法声明之前已经声明的变量</strong>,防止循环变量变成全局变量</li>
 </ol>
@@ -191,13 +191,12 @@
 <li>如果是复杂数据类型，不能更改地址值</li>
 </ol>
 <a id="more"></a>
-
 <h4 id="3-解构赋值"><a href="#3-解构赋值" class="headerlink" title="3. 解构赋值"></a>3. 解构赋值</h4><p>将数组或者对象按照对应位置,对变量赋值</p>
 <ol>
 <li><strong>数组解构</strong></li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let [a,b,c] &#x3D; [1,2,3]</span><br></pre></td></tr></table></figure>
-<ol start="2">
+<ol>
 <li><strong>对象解构</strong></li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let person &#x3D; &#123; name: &#39;zhangsan&#39;, age: 20 &#125;; </span><br><span class="line">let &#123; name, age &#125; &#x3D; person;</span><br></pre></td></tr></table></figure>
@@ -216,11 +215,11 @@
 </li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function sum(n1,n2)&#123;</span><br><span class="line">	return a1+a2;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;es6</span><br><span class="line">const sum &#x3D; (a1,a2) &#x3D;&gt; n1+n2;</span><br></pre></td></tr></table></figure>
-<ol start="3">
+<ol>
 <li>箭头函数不绑定this关键字，箭头函数中的this，指向的是函数定义位置的上下文this</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const obj &#x3D; &#123; name: &#39;张三&#39;&#125; </span><br><span class="line"> function fn () &#123; </span><br><span class="line">     console.log(this);&#x2F;&#x2F;this 指向 是obj对象</span><br><span class="line">     return () &#x3D;&gt; &#123; </span><br><span class="line">         console.log(this);&#x2F;&#x2F;this 指向 的是箭头函数定义的位置，那么这个箭头函数定义在fn里面，而这个fn指向是的obj对象，所以这个this也指向是obj对象</span><br><span class="line">     &#125; </span><br><span class="line"> &#125; </span><br><span class="line"> const resFn &#x3D; fn.call(obj); </span><br><span class="line"> resFn();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="4">
+<ol>
 <li>箭头函数没有argument，同时也无法使用new关键字生成</li>
 </ol>
 <h4 id="5-新数据类型"><a href="#5-新数据类型" class="headerlink" title="5. 新数据类型"></a>5. 新数据类型</h4><p>新数据类型 Symbol 表示独一无二的值</p>
@@ -244,10 +243,8 @@
 <li><p><strong>构造数组方法 Array.from()</strong></p>
 <p>将伪数组直接俄转化为数组对象</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;定义一个集合</span><br><span class="line">let arrayLike &#x3D; &#123;</span><br><span class="line">    &#39;0&#39;: &#39;a&#39;,</span><br><span class="line">    &#39;1&#39;: &#39;b&#39;,</span><br><span class="line">    &#39;2&#39;: &#39;c&#39;,</span><br><span class="line">    length: 3</span><br><span class="line">&#125;; </span><br><span class="line">&#x2F;&#x2F;转成数组</span><br><span class="line">let arr2 &#x3D; Array.from(arrayLike); &#x2F;&#x2F; [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span><br></pre></td></tr></table></figure>
-
 <p>方法还可以接受第二个参数，作用类似于数组的map方法，用来对每个元素进行处理，将处理后的值放入返回的数组</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> let arrayLike &#x3D; &#123; </span><br><span class="line">     &quot;0&quot;: 1,</span><br><span class="line">     &quot;1&quot;: 2,</span><br><span class="line">     &quot;length&quot;: 2</span><br><span class="line"> &#125;</span><br><span class="line"> let newAry &#x3D; Array.from(arrayLike, item &#x3D;&gt; item *2)&#x2F;&#x2F;[2,4]</span><br><span class="line">&#x2F;&#x2F;如果是对象，那么属性需要写对应的索引</span><br></pre></td></tr></table></figure>
-
 <p><strong>实例方法find()</strong></p>
 <p>找出第一个符合条件的数组成员</p>
 <p><strong>实例方法findindex()</strong></p>
@@ -282,12 +279,10 @@
 </ol>
 <h4 id="10-generator函数"><a href="#10-generator函数" class="headerlink" title="10. generator函数"></a>10. generator函数</h4><p>在function后面加*号 ，yield阻塞函数执行,next()继续执行yield后面代码，参数是对yield前数据赋值</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function* sum ()&#123;</span><br><span class="line">	let a &#x3D; yield 10;</span><br><span class="line">&#125;</span><br><span class="line">sum().next();&#x2F;&#x2F;执行yield 后代码返回值10</span><br><span class="line">sum().next(100);&#x2F;&#x2F;为a赋值</span><br></pre></td></tr></table></figure>
-
-
 <h4 id="11-promise（承诺）"><a href="#11-promise（承诺）" class="headerlink" title="11. promise（承诺）"></a>11. promise（承诺）</h4><p>相当于一个容器，保证未来结束的事件的结果</p>
 <p><strong>特点</strong></p>
 <p>  1.保证对象状态不受外界影响，处理异步操作结果三个状态 pending（执行中)resolved(成功)，rejected（失败）</p>
-<ol start="2">
+<ol>
 <li>一旦状态改变，就不会继续改变，任何情况都是以上三个结果</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var p &#x3D; new promise(function (resolved,rejected)&#123;</span><br><span class="line">	let a &#x3D; 10;</span><br><span class="line">	&#x2F;&#x2F;let a &#x3D; 11</span><br><span class="line">	if(a&#x3D;&#x3D;10)</span><br><span class="line">	&#123;</span><br><span class="line">	resolved(a);</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	rejected(a)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">p.then((val)&#x3D;&gt;&#123;&#125;,(err)&#x3D;&gt;&#123;&#125;)</span><br><span class="line">p.then((val&#x3D;&gt;&#123;&#125;)).catch(err&#x3D;&gt;&#123;&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;第一个调用执行成功函数,第二个可选参数是失败执行函数，值为resolved </span><br><span class="line">&#x2F;&#x2F;rejected传入值，返回值是一个新promise对象，实现链式,catch</span><br></pre></td></tr></table></figure>
@@ -299,8 +294,7 @@
 </li>
 <li><p>race()方法：某个异步操作设置请求超时时间，并在超时后执行有关操作</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p.race([succss(),timeout()]).then()</span><br></pre></td></tr></table></figure></li>
-<li><p>finally(),最后不管成功失败始终需要执行</p>
-</li>
+<li>finally(),最后不管成功失败始终需要执行</li>
 </ol>
 <p><strong>promise封装ajax请求</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">function get(url)</span><br><span class="line">&#123;</span><br><span class="line">&#x2F;&#x2F;便于在promise封装中传入参数</span><br><span class="line">	return new promise(function (resolve,reject)&#123;</span><br><span class="line">	var HXR &#x3D; new XMRHttpRequest();</span><br><span class="line">	XHR.open(&quot;GET&quot;,url,true);</span><br><span class="line">	XHR.send();</span><br><span class="line">	</span><br><span class="line">	XHR.onreadystatechage &#x3D; function ()&#123;</span><br><span class="line">	if(XHR.readyState &#x3D;&#x3D; 4 &amp;&amp; XHR.status&#x3D;&#x3D;200)</span><br><span class="line">	&#123;</span><br><span class="line">	try&#123;</span><br><span class="line">		var res &#x3D; JSON.parse(XHR.responseText);</span><br><span class="line">		resolve(res);</span><br><span class="line">		&#125;catch(e) &#123;</span><br><span class="line">		reject(e);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	reject(new Error(XHR.statusText));</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -566,15 +560,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">前端 css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="https://veilhry.github.io">
   <title>模拟退火算法 | Velihry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="模拟退火 (Simulated Annealing): 它是一种通过模拟物理退 火过程搜索最优解的方法. 题目示例旅行商问题（TSP): 假设有一个旅行商人要拜访 n 个城市, dij 表 示两城市间距离. xij为 0,1 变量, 表示拜访路径是否包函路径 dij. 约束条件：通过n个城市后最终回到起点$$约束条件：\sum_{i&#x3D;0}^n x_{ij} &#x3D; \sum_{j&#x3D;0}^nx_{ij}">
+  <meta name="description" content="模拟退火 (Simulated Annealing): 它是一种通过模拟物理退 火过程搜索最优解的方法. 题目示例旅行商问题（TSP): 假设有一个旅行商人要拜访 n 个城市, dij 表 示两城市间距离. xij为 0,1 变量, 表示拜访路径是否包函路径 dij. 约束条件：通过n个城市后最终回到起点  约束条件：\sum_{i&#x3D;0}^n x_{ij} &#x3D; \sum_{j&#x3D;0}^nx_{ij}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模拟退火算法">
 <meta property="og:url" content="https://veilhry.github.io/2021/04/18/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Velihry">
-<meta property="og:description" content="模拟退火 (Simulated Annealing): 它是一种通过模拟物理退 火过程搜索最优解的方法. 题目示例旅行商问题（TSP): 假设有一个旅行商人要拜访 n 个城市, dij 表 示两城市间距离. xij为 0,1 变量, 表示拜访路径是否包函路径 dij. 约束条件：通过n个城市后最终回到起点$$约束条件：\sum_{i&#x3D;0}^n x_{ij} &#x3D; \sum_{j&#x3D;0}^nx_{ij}">
+<meta property="og:description" content="模拟退火 (Simulated Annealing): 它是一种通过模拟物理退 火过程搜索最优解的方法. 题目示例旅行商问题（TSP): 假设有一个旅行商人要拜访 n 个城市, dij 表 示两城市间距离. xij为 0,1 变量, 表示拜访路径是否包函路径 dij. 约束条件：通过n个城市后最终回到起点  约束条件：\sum_{i&#x3D;0}^n x_{ij} &#x3D; \sum_{j&#x3D;0}^nx_{ij}">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210418145827654.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="article:published_time" content="2021-04-18T07:00:45.000Z">
-<meta property="article:modified_time" content="2021-04-18T07:01:27.452Z">
+<meta property="article:modified_time" content="2021-04-19T12:49:01.320Z">
 <meta property="article:author" content="Veilhry">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -179,10 +179,13 @@
       
         <p><strong>模拟退火 (Simulated Annealing):</strong> 它是一种通过模拟物理退 火过程搜索最优解的方法.</p>
 <h4 id="题目示例"><a href="#题目示例" class="headerlink" title="题目示例"></a>题目示例</h4><p>旅行商问题（TSP): 假设有一个旅行商人要拜访 n 个城市, d<sub>ij</sub> 表 示两城市间距离. x<sub>ij</sub>为 0,1 变量, 表示拜访路径是否包函路径 d<sub>ij</sub>.</p>
-<p><strong>约束条件：</strong>通过n个城市后最终回到起点<br>$$<br>约束条件：\sum_{i=0}^n x_{ij} = \sum_{j=0}^nx_{ij}=1<br>$$</p>
-<p>$$<br>&lt;Empty \space Math \space Block&gt;<br>$$</p>
-<p><strong>目标：</strong><br>$$<br>min \sum_{i\neq j}d_{ij}x_{ij}<br>$$<br>以第一个城市为始终点, 计算任意一条路径 [1, i<sub>2</sub>, · · · , i<sub>n</sub>, 1] 的长度的基本运算为两两城市间距离求和, 基本操作次数为 n. 路径的条数为 (n−1)!. 求和运算的总次数为(n−1)!×n = n!.</p>
+<p><strong>约束条件：</strong>通过n个城市后最终回到起点</p>
+<script type="math/tex; mode=display">
+约束条件：\sum_{i=0}^n x_{ij} = \sum_{j=0}^nx_{ij}=1</script><p><strong>目标：</strong></p>
+<script type="math/tex; mode=display">
+min \sum_{i\neq j}d_{ij}x_{ij}</script><p>以第一个城市为始终点, 计算任意一条路径 [1, i<sub>2</sub>, · · · , i<sub>n</sub>, 1] 的长度的基本运算为两两城市间距离求和, 基本操作次数为 n. 路径的条数为 (n−1)!. 求和运算的总次数为(n−1)!×n = n!.</p>
 <p>若只通过枚举法求解：假设计算机每秒计算24个城市</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -194,7 +197,8 @@
 <th>30</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>计算时间</td>
 <td>1s</td>
 <td>10m</td>
@@ -202,13 +206,16 @@
 <td>136.5d</td>
 <td>10.8y</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>所以靠暴力枚举法求解，所花销的时间复杂度是难以忍受的，而使用模拟退火算法，收敛速度会更加能够接受</p>
 <h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a><strong>算法思想</strong></h4><p>通过模拟物理退火的过程，取不断的逼近最优解。物理退火是物体在高温状态，慢慢通过准静态过程降温，不断达到能量较小的状态。模拟退火的重点就是类似这个过程取趋近于目标函数的最优解的过程</p>
 <h4 id="与贪心算法的区别"><a href="#与贪心算法的区别" class="headerlink" title="与贪心算法的区别"></a><strong>与贪心算法的区别</strong></h4><p><strong>贪心算法：</strong>贪心算法不断的尝试领域内的值，若在A点的左边或者右边出现较优解，就将当前最优解更新，若不存在，则当前值为最优解，最终会停在B点作为最优解</p>
 <p><strong>模拟退火算法：</strong>与贪心类似寻找邻域内是否存在更优解，是则更新解，或者满足一定的概率（类似玻尔兹曼分布）将邻域的值作为优解，所以模拟退火算法可以跳出当前局部优解得到D点为最优解</p>
 <p><img src="https://img-blog.csdnimg.cn/20210418145827654.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <p><strong>模拟退火与物理退火过程对应</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -216,7 +223,8 @@
 <th>物理退火</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>解</td>
 <td>粒子状态</td>
 </tr>
@@ -240,7 +248,9 @@
 <td>控制参数下降</td>
 <td>冷却</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h4 id="拟退火算法伪代码"><a href="#拟退火算法伪代码" class="headerlink" title="拟退火算法伪代码"></a>拟退火算法伪代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> initial solution x_0,x^current &#x3D; x0 &#x2F;&#x2F;初始化值</span><br><span class="line"> set initial temperature T &#x3D; T_0</span><br><span class="line"> while temperature &lt; T_k</span><br><span class="line"> 	for i to T_L</span><br><span class="line"> 		generate randomly a neighbouring solution x′ ∈ N(x^current)&#x2F;&#x2F;随机产生邻域内的值</span><br><span class="line">		compute change of cost ∆C &#x3D; C(x′) − C(x^current) &#x2F;&#x2F;计算差值</span><br><span class="line">		f ∆C ≤ 0 or random(0, 1) &lt; exp(−∆C^kT ) then</span><br><span class="line">		x^current &#x3D; x′ &#x2F;&#x2F;更新当前最优值</span><br><span class="line">	set new temperature T &#x3D; decrease(T) &#x2F;&#x2F;设置新的温度下降值</span><br><span class="line">return solution </span><br></pre></td></tr></table></figure>
 <h4 id="算法实现细节"><a href="#算法实现细节" class="headerlink" title="算法实现细节"></a>算法实现细节</h4><p><strong>初始解生成</strong></p>
 <ul>
@@ -264,12 +274,15 @@
 </ul>
 <p><strong>如何降温</strong></p>
 <ul>
-<li><p>经典降温算法<br>$$<br>T(t) = \frac{T}{log(1+t)}<br>$$</p>
-</li>
-<li><p>快速降温<br>$$<br>T(t) = \frac{T_0}{1+t}<br>$$</p>
-</li>
-<li><p>其他 其中  0.8 ≤ α ≤ 0.99<br>$$<br>T(t+\Delta t) = \alpha T(t)<br>$$</p>
-</li>
+<li><p>经典降温算法</p>
+<script type="math/tex; mode=display">
+T(t) = \frac{T}{log(1+t)}</script></li>
+<li><p>快速降温</p>
+<script type="math/tex; mode=display">
+T(t) = \frac{T_0}{1+t}</script></li>
+<li><p>其他 其中  0.8 ≤ α ≤ 0.99</p>
+<script type="math/tex; mode=display">
+T(t+\Delta t) = \alpha T(t)</script></li>
 </ul>
 <p><strong>花费函数</strong></p>
 <p>花费函数 COST 一般由目标函数来构造. 目标函数, 或目标 函数的倒数/相反数经常直接作为花费函数.</p>
@@ -515,15 +528,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">前端 css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
