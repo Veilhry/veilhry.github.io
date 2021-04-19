@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210418145827654.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjQzOTA2Mw==,size_16,color_FFFFFF,t_70#pic_center">
 <meta property="article:published_time" content="2021-04-18T07:00:45.000Z">
-<meta property="article:modified_time" content="2021-04-19T12:58:30.170Z">
+<meta property="article:modified_time" content="2021-04-19T13:00:29.619Z">
 <meta property="article:author" content="Veilhry">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -62,7 +62,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/false">随笔</a></li>
+				<li><a href="/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -87,8 +87,6 @@
 					<a class="github" target="_blank" href="https://github.com/Veilhry" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
 					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
@@ -129,8 +127,6 @@
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
 						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 				</div>
@@ -142,7 +138,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/false">随笔</a></li>
+					<li style="width: 50%"><a href="/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -169,7 +165,14 @@
   
 
         
-        <a href="/2021/04/18/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95/" class="archive-article-date">
+        
+	<!-- 不蒜子统计 -->
+	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+
+<a href="/2021/04/18/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95/" class="archive-article-date">
   	<time datetime="2021-04-18T07:00:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-18</time>
 </a>
         
@@ -210,6 +213,7 @@ min \sum_{i\neq j}d_{ij}x_{ij}</script><p>以第一个城市为始终点, 计算
 </table>
 </div>
 <p>所以靠暴力枚举法求解，所花销的时间复杂度是难以忍受的，而使用模拟退火算法，收敛速度会更加能够接受</p>
+<a id="more"></a>
 <h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a><strong>算法思想</strong></h4><p>通过模拟物理退火的过程，取不断的逼近最优解。物理退火是物体在高温状态，慢慢通过准静态过程降温，不断达到能量较小的状态。模拟退火的重点就是类似这个过程取趋近于目标函数的最优解的过程</p>
 <h4 id="与贪心算法的区别"><a href="#与贪心算法的区别" class="headerlink" title="与贪心算法的区别"></a><strong>与贪心算法的区别</strong></h4><p><strong>贪心算法：</strong>贪心算法不断的尝试领域内的值，若在A点的左边或者右边出现较优解，就将当前最优解更新，若不存在，则当前值为最优解，最终会停在B点作为最优解</p>
 <p><strong>模拟退火算法：</strong>与贪心类似寻找邻域内是否存在更优解，是则更新解，或者满足一定的概率（类似玻尔兹曼分布）将邻域的值作为优解，所以模拟退火算法可以跳出当前局部优解得到D点为最优解</p>
@@ -457,7 +461,20 @@ T(t+\Delta t) = \alpha T(t)</script></li>
       	</div>
     </div>
   </div>
+  
+	<!-- 不蒜子统计 -->
+	<span id="busuanzi_container_site_pv">
+			本站总访问量<span id="busuanzi_value_site_pv"></span>次
+	</span>
+	<span class="post-meta-divider">|</span>
+	<span id="busuanzi_container_site_uv" style='display:none'>
+			本站访客数<span id="busuanzi_value_site_uv"></span>人
+	</span>
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 </footer>
+
+
     </div>
     <script>
 	var yiliaConfig = {
